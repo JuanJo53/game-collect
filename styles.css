@@ -104,7 +104,7 @@ body {
 	color: #fff;
 	line-height: 60px;
 	background: #06728a;
-	border-radius: 4px;
+	border-radius: 15px;
 	cursor: pointer;
 }
 .custom-select-trigger:after {
@@ -135,7 +135,7 @@ body {
 	min-width: 100%;
 	margin: 15px 0;
 	border: 1px solid #1a9bb7;
-	border-radius: 4px;
+	border-radius: 15px;
 	box-sizing: border-box;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07);
 	background: #1a9bb7;
@@ -183,11 +183,11 @@ body {
 	transition: all 0.4s ease-in-out;
 }
 .custom-option:first-of-type {
-	border-radius: 4px 4px 0 0;
+	border-radius: 15px 15px 0 0;
 }
 .custom-option:last-of-type {
 	border-bottom: 0;
-	border-radius: 0 0 4px 4px;
+	border-radius: 0 0 15px 15px;
 }
 .custom-option:hover,
 .custom-option.selection {
