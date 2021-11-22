@@ -92,6 +92,7 @@ body {
 .custom-select {
 	position: relative;
 	display: inline-block;
+	font-weight: bolder;
 }
 .custom-select-trigger {
 	position: relative;
@@ -160,9 +161,9 @@ body {
 	width: 7px;
 	height: 7px;
 	margin-bottom: -4px;
-	border-top: 1px solid #b5b5b5;
-	border-left: 1px solid #b5b5b5;
-	background: #fff;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	background: #1a9bb7;
 	transform: rotate(45deg);
 	transition: all 0.4s ease-in-out;
 }
@@ -173,7 +174,7 @@ body {
 	position: relative;
 	display: block;
 	padding: 0 22px;
-	border-bottom: 1px solid #b5b5b5;
+	border-bottom: 1px solid #fff;
 	font-size: 18px;
 	font-weight: 600;
 	color: #fff;
@@ -190,7 +191,7 @@ body {
 }
 .custom-option:hover,
 .custom-option.selection {
-	background: #b5b5b5;
+	background: #ddcece;
 }
 
 .header {
