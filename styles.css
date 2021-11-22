@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Raleway:wght@100&display=swap");
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: "Raleway", sans-serif;
+	font-family: "Press Start 2P", cursive;
+}
+html,
+body {
+	height: 100%;
+	background-color: #174043;
+	color: #ffffff;
+}
+
+.container {
+	align-items: center;
+	margin: 40px;
+}
+.header {
+	padding: 40px;
+	background-color: #06728a;
+	height: 200px;
+	width: 100%;
+}
+.navbar {
+	display: flex;
+}
+.header_item {
+	margin: auto;
+}
+.title {
+	margin: 40px;
+	text-align: center;
+	font-size: 500%;
+}
