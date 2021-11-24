@@ -14,6 +14,24 @@ body {
 	background-color: #174043;
 	color: #ffffff;
 }
+.header {
+	padding: 40px;
+	background-color: #06728a;
+	height: 180px;
+	width: 100%;
+}
+.navbar {
+	display: flex;
+}
+.header_item {
+	margin: auto;
+}
+.title {
+	margin: 10px;
+	text-align: center;
+	font-size: 500%;
+	font-family: "Press Start 2P", cursive;
+}
 
 .container {
 	align-items: center;
@@ -194,21 +212,39 @@ body {
 	background: #ddcece;
 }
 
-.header {
-	padding: 40px;
+.card {
+	perspective: 150rem;
+	position: relative;
+	height: 40rem;
+	max-width: 300px;
+	margin: 2rem;
+}
+
+.card-side {
+	height: 15rem;
+	border-radius: 15px;
+	transition: all 0.8s ease;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80%;
+	padding: 2rem;
+}
+
+.card-side.back {
+	transform: rotateY(-180deg);
+	background-color: #1a9bb7;
+}
+
+.card-side.front {
 	background-color: #06728a;
-	height: 180px;
-	width: 100%;
 }
-.navbar {
-	display: flex;
+
+.card:hover .card-side.front {
+	transform: rotateY(180deg);
 }
-.header_item {
-	margin: auto;
-}
-.title {
-	margin: 10px;
-	text-align: center;
-	font-size: 500%;
-	font-family: "Press Start 2P", cursive;
+
+.card:hover .card-side.back {
+	transform: rotateY(0deg);
 }
