@@ -11,7 +11,7 @@
 html,
 body {
 	height: 100%;
-	background-color: #174043;
+	background-color: #174043 !important;
 	color: #ffffff;
 }
 .header {
@@ -19,6 +19,7 @@ body {
 	background-color: #06728a;
 	height: 180px;
 	width: 100%;
+	color: #fff;
 }
 .navbar {
 	display: flex;
@@ -37,7 +38,9 @@ body {
 	align-items: center;
 	margin: 50px;
 }
-
+.games {
+	background-color: #174043 !important;
+}
 .search-box {
 	width: fit-content;
 	height: fit-content;
@@ -214,13 +217,15 @@ body {
 
 .card {
 	perspective: 150rem;
-	position: relative;
-	height: 40rem;
+	height: 15rem;
 	max-width: 300px;
 	margin: 2rem;
+	background-color: #174043 !important;
+	color: #fff;
 }
 
 .card-side {
+	color: #fff;
 	height: 15rem;
 	border-radius: 15px;
 	transition: all 0.8s ease;
