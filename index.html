@@ -18,6 +18,7 @@
 			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 			crossorigin="anonymous"
 		/>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 	<script>
@@ -35,41 +36,42 @@
 	<body>
 		<div class="header">
 			<div class="navbar">
-				<div class="header_item">
+				<div class="header_controler1">
 					<object data="assets/Control_SVG.svg" width="130" height="130"></object>
 				</div>
-				<div class="header_item">
+				<div class="header_title">
 					<h1 class="title">PikGame</h1>
 				</div>
-				<div class="header_item">
+				<div class="header_controler2">
 					<object data="assets/Control_SVG.svg" width="130" height="130"></object>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="panel col-4">
+				<div class="panel col-3">
 					<div class="search-box">
 						<button class="btn-search"><i class="fa fa-search"></i></button>
 						<input type="text" class="input-search" placeholder="Escribe para buscar..." />
 					</div>
 					<div class="categories">
-						<select name="sources" id="sources" class="custom-select sources" placeholder="Categorias">
-							<option value="shooter">Shooter</option>
+						<select name="sources" id="sources" class="custom-select selectpicker sources" placeholder="Categorias">
+							<option data-icon="assets/Pistola.svg" value="shooter">Shooters</option>
 							<option value="word">Deportes</option>
 							<option value="hashtag">Rompecabezas</option>
 							<option value="hashtag">Arcade</option>
 							<option value="hashtag">Estrategia</option>
+							<option data-icon="glyphicon glyphicon-eye-open" data-subtext="petrification">Eye of Medusa</option>
 						</select>
 					</div>
 				</div>
 				<div class="games col-8">
 					<div class="card">
 						<div class="card-side front">
-							<div>Front Side</div>
+							<div>Contenido</div>
 						</div>
 						<div class="card-side back">
-							<div>Back Side</div>
+							<div>EN hOVER</div>
 						</div>
 					</div>
 				</div>

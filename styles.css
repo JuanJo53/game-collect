@@ -15,7 +15,7 @@ body {
 	color: #ffffff;
 }
 .header {
-	padding: 40px;
+	padding: 10px;
 	background-color: #06728a;
 	height: 180px;
 	width: 100%;
@@ -24,11 +24,16 @@ body {
 .navbar {
 	display: flex;
 }
-.header_item {
+.header_title {
 	margin: auto;
 }
+.header_controler1 {
+	margin-left: 25rem;
+}
+.header_controler2 {
+	margin-right: 25rem;
+}
 .title {
-	margin: 10px;
 	text-align: center;
 	font-size: 500%;
 	font-family: "Press Start 2P", cursive;
