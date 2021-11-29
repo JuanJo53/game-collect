@@ -23,12 +23,42 @@
 	</head>
 	<script>
 		$(document).ready(function () {
+			let games = [];
 			$.ajax({
-				url: "https://api.rawg.io/api/genres",
+				url: "https://api.rawg.io/api/games",
 				type: "GET",
 				data: { key: "84e585c2793c4c798053c96954750353" },
 				success: function (response) {
-					console.log(response);
+					response.results.forEach(game => {
+						let url = "https://api.rawg.io/api/games/" + game.id;
+						$.ajax({
+							url: url,
+							type: "GET",
+							data: { key: "84e585c2793c4c798053c96954750353" },
+							success: function (gameDetails) {
+								games.push(gameDetails);
+								var htmlCard =
+									"<div class='col-sm-6 col-lg-4 col-md-4 mb-1 mt-1'><div class='cards'><div class='card-side front' style='background-image: url(" +
+									gameDetails.background_image +
+									");'><h4>" +
+									gameDetails.name +
+									"</h4></div><div class='card-side back'><h3>" +
+									gameDetails.name +
+									"</h3><div class='card_platforms'><h6>Generos</h6><p class='genres'> - ";
+								gameDetails.genres.forEach(genre => {
+									htmlCard += genre.name + " - ";
+								});
+								htmlCard += "<p><h6>Desarrolladores</h6> - ";
+								gameDetails.developers.forEach(dev => {
+									htmlCard += dev.name + " - ";
+								});
+								htmlCard += "</p></div></div></div></div>";
+								$(".game_cards").append(htmlCard);
+								// console.log(gameDetails.platforms[0]);
+							}
+						});
+					});
+					console.log(games);
 				}
 			});
 		});
@@ -40,7 +70,7 @@
 					<object data="assets/Control_SVG.svg" width="130" height="130"></object>
 				</div>
 				<div class="header_title">
-					<h1 class="title">PikGame</h1>
+					<img src="assets/Pikgamelogo.svg" alt="" width="600" height="100" />
 				</div>
 				<div class="header_controler2">
 					<object data="assets/Control_SVG.svg" width="130" height="130"></object>
@@ -64,13 +94,23 @@
 						</select>
 					</div>
 				</div>
-				<div class="games col-8">
-					<div class="card">
-						<div class="card-side front">
-							<div>Contenido</div>
-						</div>
-						<div class="card-side back">
-							<div>En Hover</div>
+				<div class="games col-9">
+					<div class="row game_cards">
+						<div class="col-sm-6 col-lg-4 col-md-4 mb-1 mt-1">
+							<div class="cards">
+								<div
+									class="card-side front"
+									style="
+										background-image: url('https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg');
+									"
+								>
+									<h4>Grand Theft Auto 5</h4>
+								</div>
+								<div class="card-side back">
+									<h3>Grand Theft Auto 5</h3>
+									div
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
