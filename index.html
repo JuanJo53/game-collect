@@ -18,51 +18,8 @@
 			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 			crossorigin="anonymous"
 		/>
-
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
-	<script>
-		$(document).ready(function () {
-			let games = [];
-			$.ajax({
-				url: "https://api.rawg.io/api/games",
-				type: "GET",
-				data: { key: "84e585c2793c4c798053c96954750353" },
-				success: function (response) {
-					response.results.forEach(game => {
-						let url = "https://api.rawg.io/api/games/" + game.id;
-						$.ajax({
-							url: url,
-							type: "GET",
-							data: { key: "84e585c2793c4c798053c96954750353" },
-							success: function (gameDetails) {
-								games.push(gameDetails);
-								var htmlCard =
-									"<div class='col-sm-6 col-lg-4 col-md-4 mb-1 mt-1'><div class='cards'><div class='card-side front' style='background-image: url(" +
-									gameDetails.background_image +
-									");'><h4>" +
-									gameDetails.name +
-									"</h4></div><div class='card-side back'><h3>" +
-									gameDetails.name +
-									"</h3><div class='card_platforms'><h6>Generos</h6><p class='genres'> - ";
-								gameDetails.genres.forEach(genre => {
-									htmlCard += genre.name + " - ";
-								});
-								htmlCard += "<p><h6>Desarrolladores</h6> - ";
-								gameDetails.developers.forEach(dev => {
-									htmlCard += dev.name + " - ";
-								});
-								htmlCard += "</p></div></div></div></div>";
-								$(".game_cards").append(htmlCard);
-								// console.log(gameDetails.platforms[0]);
-							}
-						});
-					});
-					console.log(games);
-				}
-			});
-		});
-	</script>
 	<body>
 		<div class="header">
 			<div class="navbar">
@@ -81,38 +38,22 @@
 			<div class="row">
 				<div class="panel col-3">
 					<div class="search-box">
-						<button class="btn-search"><i class="fa fa-search"></i></button>
-						<input type="text" class="input-search" placeholder="Escribe para buscar..." />
+						<button class="btn-search" id="search"><i class="fa fa-search"></i></button>
+						<input type="text" class="input-search" id="searchParam" placeholder="Escribe para buscar..." />
 					</div>
 					<div class="categories">
 						<select name="sources" id="sources" class="custom-select selectpicker sources" placeholder="Categorias">
-							<option data-icon="assets/Pistola.svg" value="shooter">Shooters</option>
-							<option value="word">Deportes</option>
-							<option value="hashtag">Rompecabezas</option>
-							<option value="hashtag">Arcade</option>
-							<option value="hashtag">Estrategia</option>
+							<option value="">Todo</option>
+							<option value="shooter">Shooters</option>
+							<option value="sport">Deportes</option>
+							<option value="puzzle">Rompecabezas</option>
+							<option value="arcade">Arcade</option>
+							<option value="strategy">Estrategia</option>
 						</select>
 					</div>
 				</div>
 				<div class="games col-9">
-					<div class="row game_cards">
-						<div class="col-sm-6 col-lg-4 col-md-4 mb-1 mt-1">
-							<div class="cards">
-								<div
-									class="card-side front"
-									style="
-										background-image: url('https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg');
-									"
-								>
-									<h4>Grand Theft Auto 5</h4>
-								</div>
-								<div class="card-side back">
-									<h3>Grand Theft Auto 5</h3>
-									div
-								</div>
-							</div>
-						</div>
-					</div>
+					<div class="row game_cards"></div>
 				</div>
 			</div>
 		</div>
