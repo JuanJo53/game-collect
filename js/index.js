@@ -1,7 +1,9 @@
 $(document).ready(function () {
 	loadData("");
+
+	var games = [];
 	function loadData(searchParam) {
-		let games = [];
+		games = [];
 		$(".game_cards").empty();
 		$.ajax({
 			url: "https://api.rawg.io/api/games",
@@ -27,11 +29,11 @@ $(document).ready(function () {
 								gameDetails.name +
 								"</h4></div><div class='card-side back'><h3>" +
 								gameDetails.name +
-								"</h3><div class='card_platforms'><h6>Generos</h6><p class='genres'> - ";
+								"</h3><div class='card_platforms'><h6>Categories</h6><p class='genres'> - ";
 							gameDetails.genres.forEach(genre => {
 								htmlCard += genre.name + " - ";
 							});
-							htmlCard += "<p><h6>Desarrolladores</h6> - ";
+							htmlCard += "<p><h6>Developers</h6> - ";
 							gameDetails.developers.forEach(dev => {
 								htmlCard += dev.name + " - ";
 							});
@@ -44,6 +46,67 @@ $(document).ready(function () {
 			}
 		});
 	}
+	function setModalGameDetails(game) {
+		console.log(game);
+		$("#modalTitle").text(game.name_original);
+		if (game.background_image_additional) {
+			$("#modalImg").css("background-image", "url(" + game.background_image_additional + ")");
+		} else {
+			$("#modalImg").css("background-image", "url(" + game.background_image + ")");
+		}
+		$(".modalWebBtn").attr("href", game.website);
+
+		if (game.esrb_rating) {
+			$("#rating").text(game.esrb_rating.name);
+		} else {
+			$("#rating").text("Not Registered");
+		}
+
+		if (game.rating) {
+			$("#puntuation").text(game.rating);
+			if (parseFloat(game.rating) < 4.0) {
+				$("#puntuation").removeClass("bg-danger");
+				$("#puntuation").removeClass("bg-success");
+				$("#puntuation").addClass("bg-warning");
+			} else if (parseFloat(game.rating) < 3.0) {
+				$("#puntuation").removeClass("bg-danger");
+				$("#puntuation").removeClass("bg-success");
+				$("#puntuation").addClass("bg-warning");
+			} else {
+				$("#puntuation").removeClass("bg-danger");
+				$("#puntuation").removeClass("bg-success");
+				$("#puntuation").addClass("bg-success");
+			}
+		} else {
+			$("#puntuation").text("Not Registered");
+		}
+
+		if (game.description) {
+			$("#modalDesc").empty();
+			$("#modalDesc").append(game.description);
+		} else {
+			$("#modalDesc").append("<p>Not Registered</p>");
+		}
+
+		if (game.tags) {
+			game.tags.forEach(tag => {
+				$("#tags").append("<span class='badge bg-secondary m-1'>" + tag.name + "</span>");
+			});
+		} else {
+			$("#tags").append("<span class='badge bg-secondary m-1'>None</span>");
+		}
+
+		if (game.publishers) {
+			game.publishers.forEach(publisher => {
+				$("#publishers").append(
+					"<li class='list-group-item list-group-item-info text-dark fw-bold'>" + publisher.name + "</li>"
+				);
+			});
+		} else {
+			$("#publishers").append("<li class='list-group-item list-group-item-info text-dark fw-bold'>None</li>");
+		}
+	}
+
 	$(".custom-select").each(function () {
 		var classes = $(this).attr("class"),
 			id = $(this).attr("id"),
@@ -85,6 +148,7 @@ $(document).ready(function () {
 		event.stopPropagation();
 	});
 
+	//Categories search
 	$(".custom-option").on("click", function () {
 		$(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
 		$(this).parents(".custom-options").find(".custom-option").removeClass("selection");
@@ -96,10 +160,15 @@ $(document).ready(function () {
 		loadData(value);
 	});
 
+	//On click on a card
 	$("body").delegate(".interactive_card", "click", function () {
 		var id = $(this).attr("id");
-		console.log(id);
+		$("#exampleModal").modal("show");
+		const game = games.find(obj => obj.id == id);
+		setModalGameDetails(game);
 	});
+
+	//Input search
 	$("#search").on("click", function () {
 		var param = $("#searchParam").val();
 		loadData(param);

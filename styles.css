@@ -264,6 +264,11 @@ h6 {
 	font-weight: bolder !important;
 	padding: 2px;
 }
+h5 {
+	font-size: larger !important;
+	font-weight: bolder !important;
+	padding: 2px;
+}
 .genres {
 	font-style: italic;
 }
@@ -284,4 +289,47 @@ h6 {
 
 .cards:hover .card-side.back {
 	transform: rotateY(0deg);
+}
+
+.modal {
+	color: #fff;
+}
+.modal-content {
+	background-color: #06728a !important;
+	border-color: #06728a !important;
+}
+.modal-header {
+	background-color: #06728a !important;
+	border-color: #06728a !important;
+}
+.modalImg {
+	width: 100%;
+	height: 25rem;
+	margin-bottom: 1rem;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.modal-title {
+	font-weight: bolder !important;
+}
+.modalGeneres {
+	width: 100%;
+	margin-bottom: 2rem;
+}
+/* .description {
+	font-weight: bolder !important;
+} */
+.modalWebBtn {
+	font-weight: bolder !important;
+	color: #000 !important;
+}
+.modalWebLink {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn-group {
+	max-width: 30rem !important;
+	padding: 1rem;
 }
